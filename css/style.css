@@ -1,0 +1,72 @@
+html,
+body {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+.navbar {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    min-height: 10vh;
+}
+
+#Global-Chat , #Local-Chat{
+    height: 90vh;
+    overflow-y: auto;
+}
+
+#global-chat-msgs , #local-chat-msgs {
+    overflow-y: auto;
+    height: calc(90vh - 4rem);
+    padding-bottom: 10px;
+}
+
+.message-box {
+  padding: 8px;
+}
+
+.message-line {
+  display: inline;
+  word-wrap: break-word;
+}
+
+.username {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.message-text {
+  white-space: pre-wrap;  
+  word-break: break-word;
+}
+
+
+.message-time{
+    font-size: 0.7rem;
+    color: gray;
+}
+
+#copyMsg,#lc-name-Missing{
+    display : none;
+}
+@media (max-width: 768px) {
+  .navbar .dropdown-menu {
+    right: 0;
+    left: auto;
+  }
+}
+
+body[data-theme="dark"] .message-text {
+  color: #eaeaea; /* to change collor of text */
+}
+
+body[data-theme="light"] .message-text { /* to change collor of text */
+  color: #000; 
+}
+
+#LocalChatNavbarDropdown {
+  pointer-events: none;
+}
+
+#LocalChatNavbarDropdown a {
+  pointer-events: auto;
+}
